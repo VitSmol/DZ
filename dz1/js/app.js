@@ -21,10 +21,6 @@ window.onresize = () => {
         } else {
                 el.style.width = '100%'
                 contentContainer.style.transform = `translate(0)`
-                // for (let link of links) {
-                //     link.classList.remove(`active`)
-                // }
-                // links[0].classList.add(`active`)
         }
         currentWidth = el.style.width
     })
