@@ -3,6 +3,12 @@ const infoContainer = document.querySelector(".info").clientWidth
 const links = document.querySelectorAll('.link')
 const contentContainer = document.querySelector(`.content__container`)
 
+const inputElement = document.querySelector('#checkbox')
+const flexStyle = "css/style1.css"
+const floatStyle = "css/style2.css"
+const style = document.querySelector(`#style`)
+
+
 let currentWidth = infoContainer;
 let tempInd;
 if (window.outerWidth <= 820) {
@@ -38,4 +44,8 @@ links.forEach((el, ind) => {
         }
         links[ind].classList.add(`active`)
     })
+})
+
+inputElement.addEventListener(`click`, function() {
+    this.checked == true ? style.setAttribute(`href`, flexStyle) : style.setAttribute(`href`, floatStyle)
 })

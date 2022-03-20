@@ -1,12 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Open+Sans:wght@300&display=swap')
-$border: 5px solid #443306bf
-$shadowBlur: 5px
-$indents: 20px
-$headersColor: #f1d071
-    
+
+@import var
+
 body
     font-family: 'Merriweather', serif
     color: white
+    background: url("../assets/bg.webp") no-repeat fixed center
+    background-size: cover
+    text-shadow: 1px 1px 4px black
+    letter-spacing: 1px
+    word-spacing: 3px
 p
     font-style: italic
     font-weight: 300
@@ -14,6 +16,17 @@ h1, h2
     color: $headersColor
 h1
     text-align: center
+    @media screen and ( max-width: 400px )
+        font-size: 20px
+h2
+    margin-top: 15px
+    margin-bottom: 10px
+    font-size: 16px
+hr
+    border: 1px solid $headersColor
+    box-shadow: 1px 1px 1px $headersColor
+    box-shadow: 0px 0px 20px 3px #f1d071
+
 .container
     width: 100%
     display: flex
@@ -21,71 +34,33 @@ h1
     align-items: center
     align-content: center
     height: 100vh
-    // background: url("../assets/bg.jpg") no-repeat fixed center
-    background-size: cover
+    background: inherit
 .wrapper
     width: 100vw
     height: 100vh
-    background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.73) 17%,rgba(0,0,0,0.66) 35%,rgba(0,0,0,0.55) 62%,rgba(0,0,0,0.4) 100%)
     display: flex
     justify-content: center
     align-items: center
     align-content: center
-main
-    width: 1440px
-    height: 100vh
-    display: flex
-    flex-direction: row
-    justify-content: space-evenly
-    align-items: center
-    column-gap: $indents
-    padding: 0 $indents
-    // margin: 0 $indents
-    .photo, .info
-        flex-basis: 50%
-        height: 75vh
-        filter: blur()
-        background: #00000040
-        box-shadow: 0px 0px 35px #120707f6, 0px 0px 60px #00000040
-        border-radius: 5px
-    @media screen and ( max-width: 820px )
-        flex-direction: column
-        row-gap: $indents
-        max-width: 820px
-        justify-content: start
-        nav
-            display: block
-        .photo,.info
-            width: 100%
-        .photo
-            margin-top: $indents
-            max-height: 40vh
-        .info
-            height: 60vh
-            overflow: hidden
-            width: 100%
-            position: relative
-        img
-            max-width: 150px
-            margin: 0 auto
-        .content__container
-            position: absolute
-            display: flex
-            flex-wrap: nowrap
-            transition: all 0.5s
-            transform: translate(0)
-
-        .contacts, .skills, .about
-            // width: 92vw
-            // max-width: 765px
-           
-
+    background: inherit
 
 .photo
+    position: relative
     display: flex
     justify-content: center
     flex-direction: column
     align-items: center
+    background: inherit
+    z-index: 5
+    *
+        position: relative
+.info
+    position: relative
+    z-index: 5
+    background:inherit
+    *
+        position: relative
+
 img
     display: block
     max-width: 300px
@@ -93,20 +68,23 @@ img
     border-left: $border
     border-radius: 50%
     box-shadow: inset 5px 5px 5px white 
+    @media screen and ( max-width: 400px )
+        width: 120px
+
 nav
     display: none
-ul
-    display: flex
-    width: 100%
-    list-style-type: none
-    padding-left: 0
-    justify-content: center
-    li
-        &:nth-child(2)
-            margin: 0 $indents
-        a
-            color: white
-            text-decoration: none
+    ul
+        display: flex
+        width: 100%
+        list-style-type: none
+        padding-left: 0
+        justify-content: center
+        li
+            &:nth-child(2)
+                margin: 0 $indents
+            a
+                color: white
+                text-decoration: none
 .content
      padding-left: $indents
      padding-right: $indents
@@ -114,3 +92,90 @@ ul
 .active
     transition: all 0.5s
     color: $headersColor
+
+.photo:before, .info:before
+    content: ''
+    position: absolute
+    top: 0
+    left: 0
+    bottom: 0
+    right: 0
+    background: inherit
+    filter: blur(5px)
+    // background-color: #fff
+
+.back
+    z-index: 0
+    position: absolute
+    left: 0
+    top: 0
+    right: 0
+    bottom: 0
+    background-color: #160f0f6e
+.checkbox-container
+    position: absolute
+    left: 45%
+    &::before
+        content: 'Float model'
+        position: absolute
+        left: -120px
+        z-index: 200
+        top: 5px
+        color: $headersColor
+    &::after
+        content: 'Flex model'
+        position: absolute
+        right: -200px
+        z-index: 200
+        top: 5px
+        color: $headersColor
+
+.checkbox
+    visibility: hidden
+.checkbox-group
+    position: absolute
+    z-index: 50
+    width: 86px
+    height: 30px
+    background-color: #333
+    border-radius: 50px
+    box-shadow: 
+    &::after
+        position: absolute
+        content: ''
+        top: 14px
+        left: 14px
+        height: 2px
+        width: 58px
+        background-color: #111
+        border-radius: 50px
+        box-shadow: $checkShadow
+.checkbox-label
+    cursor: pointer
+    transition: all 0.4s ease
+    position: absolute
+    display: block
+    width: 22px
+    height: 22px
+    border-radius: 50%
+    background: #fff
+    top: 4px
+    left: 4px
+    z-index: 1
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3)
+    background: linear-gradient(to bottom, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%)
+    &::after
+        position: absolute
+        top: 6px
+        left: 6px
+        content: ''
+        width: 10px
+        height: 10px
+        border-radius: 50%
+        background-color: #333
+        box-shadow: $checkShadow
+
+.checkbox:checked + .checkbox-label
+    left: 54px
+.checkbox:checked + .checkbox-label:after
+    background: #27ae60
