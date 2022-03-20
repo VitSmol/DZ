@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Open+Sans:wght@300&display=swap");
+main {
+  width: 1440px;
+  position: relative;
+  display: block;
+  -webkit-column-gap: 20px;
+          column-gap: 20px;
+  padding: 0 20px;
+  background: inherit;
+  margin: auto;
+}
+
+main .photo {
+  float: left;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+
+main .photo img {
+  margin: 10px auto;
+}
+
+main .info {
+  float: right;
+}
+
+main .photo, main .info {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: inline-block;
+  width: 48%;
+  background: inherit;
+  -webkit-box-shadow: 0px 0px 35px #120707f6, 0px 0px 60px #00000040;
+          box-shadow: 0px 0px 35px #120707f6, 0px 0px 60px #00000040;
+  border: 15px solid #333;
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 820px) {
+  main .photo, main .info {
+    display: block;
+    float: none;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 820px) {
+  main nav {
+    display: block;
+  }
+  main .photo {
+    margin-top: 35px;
+    max-height: 40vh;
+    position: inherit;
+    margin-bottom: 10px;
+  }
+  main .info {
+    height: 60vh;
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+  }
+  main img {
+    max-width: 150px;
+    margin: 0 auto;
+  }
+  main .content__container {
+    position: absolute;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    -webkit-transform: translate(0);
+            transform: translate(0);
+  }
+}
+/*# sourceMappingURL=style2.css.map */
