@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Open+Sans:wght@300&display=swap");
 main {
   width: 1440px;
-  height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -24,7 +23,7 @@ main {
 main .photo, main .info {
   -ms-flex-preferred-size: 50%;
       flex-basis: 50%;
-  height: 75vh;
+  height: 80vh;
   background: inherit;
   -webkit-box-shadow: 0px 0px 35px #120707f6, 0px 0px 60px #00000040;
           box-shadow: 0px 0px 35px #120707f6, 0px 0px 60px #00000040;
@@ -75,6 +74,18 @@ main .photo, main .info {
     transition: all 0.5s;
     -webkit-transform: translate(0);
             transform: translate(0);
+  }
+}
+
+@media screen and (max-height: 720px) {
+  .container {
+    height: 100% !important;
+  }
+  .wrapper {
+    height: 100% !important;
+  }
+  main .photo, main .info {
+    height: 100% !important;
   }
 }
 /*# sourceMappingURL=style1.css.map */

@@ -60,7 +60,7 @@ hr {
 }
 
 .wrapper {
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -68,9 +68,6 @@ hr {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   -ms-flex-line-pack: center;
       align-content: center;
   background: inherit;
@@ -186,7 +183,7 @@ nav ul li a {
 
 .checkbox-container {
   position: absolute;
-  left: 45%;
+  left: calc( 50% - 43px);
 }
 
 .checkbox-container::before {
@@ -199,7 +196,7 @@ nav ul li a {
 }
 
 .checkbox-container::after {
-  content: 'Flex model';
+  content: 'Flex asdasdasdsad model';
   position: absolute;
   right: -200px;
   z-index: 200;
@@ -271,5 +268,17 @@ nav ul li a {
 
 .checkbox:checked + .checkbox-label:after {
   background: #27ae60;
+}
+
+@media screen and (max-height: 720px) {
+  main {
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    margin-top: 35px;
+  }
+  main .photo {
+    margin-top: 0;
+  }
 }
 /*# sourceMappingURL=style.css.map */
