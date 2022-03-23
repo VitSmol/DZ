@@ -2,11 +2,50 @@
 body {
   font-family: 'Merriweather', serif;
   color: white;
-  background: url("../assets/bg.webp") no-repeat fixed center;
-  background-size: cover;
   text-shadow: 1px 1px 4px black;
+  background: linear-gradient(45deg, black, #00000091) no-repeat fixed center;
+  background-size: cover;
   letter-spacing: 1px;
   word-spacing: 3px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: 100vh;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-top: 45px;
+}
+
+.photo, .info {
+  padding: 0 20px;
+}
+
+.photo_section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+img {
+  width: 150px;
+  border-radius: 50%;
 }
 
 p {
@@ -22,18 +61,6 @@ h1 {
   text-align: center;
 }
 
-@media screen and (max-width: 400px) {
-  h1 {
-    font-size: 20px;
-  }
-}
-
-h2 {
-  margin-top: 15px;
-  margin-bottom: 10px;
-  font-size: 16px;
-}
-
 hr {
   border: 1px solid #f1d071;
   -webkit-box-shadow: 1px 1px 1px #f1d071;
@@ -42,155 +69,18 @@ hr {
           box-shadow: 0px 0px 20px 3px #f1d071;
 }
 
-.container {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-line-pack: center;
-      align-content: center;
-  height: 100vh;
-  background: inherit;
-}
-
 .wrapper {
-  width: 100vw;
-  height: 100vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-line-pack: center;
-      align-content: center;
-  background: inherit;
-}
-
-.photo {
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  background: inherit;
-  z-index: 5;
-}
-
-.photo * {
-  position: relative;
-}
-
-.info {
-  position: relative;
-  z-index: 5;
-}
-
-.info * {
-  position: relative;
-}
-
-img {
-  display: block;
-  max-width: 300px;
-  border-right: 5px solid #443306bf;
-  border-left: 5px solid #443306bf;
-  border-radius: 50%;
-  -webkit-box-shadow: inset 5px 5px 5px white;
-          box-shadow: inset 5px 5px 5px white;
-}
-
-@media screen and (max-width: 400px) {
-  img {
-    width: 120px;
-  }
-}
-
-nav {
-  display: none;
-}
-
-nav ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-  list-style-type: none;
-  padding-left: 0;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-nav ul li:nth-child(2) {
-  margin: 0 20px;
-}
-
-nav ul li a {
-  color: white;
-  text-decoration: none;
-}
-
-.content {
-  padding-left: 20px;
-  padding-right: 20px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-.active {
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
-  color: #f1d071;
-}
-
-.photo:before, .info:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: inherit;
-  -webkit-filter: blur(5px);
-          filter: blur(5px);
-}
-
-.back {
-  z-index: 0;
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #160f0f6e;
+  padding: 0 5vw;
 }
 
 .checkbox-container {
   position: absolute;
-  left: 45%;
+  left: calc(50% - 43px);
+  top: 10px;
 }
 
 .checkbox-container::before {
-  content: 'Float model';
+  content: 'Flex model';
   position: absolute;
   left: -120px;
   z-index: 200;
@@ -199,7 +89,7 @@ nav ul li a {
 }
 
 .checkbox-container::after {
-  content: 'Flex model';
+  content: 'Float model';
   position: absolute;
   right: -200px;
   z-index: 200;
@@ -272,4 +162,24 @@ nav ul li a {
 .checkbox:checked + .checkbox-label:after {
   background: #27ae60;
 }
-/*# sourceMappingURL=style.css.map */
+
+.checkbox:checked main {
+  color: black;
+}
+
+@media screen and (max-width: 650px) {
+  main {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .checkbox-container::before {
+    content: '';
+  }
+  .checkbox-container::after {
+    content: '';
+  }
+}
+/*# sourceMappingURL=mainstyle.css.map */
