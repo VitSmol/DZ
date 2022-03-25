@@ -31,3 +31,78 @@
 @keyframes increasePauseWidth
     100%
         width: 100%
+@keyframes repeatThreeTimes
+    from
+        left: 0
+    to
+        left: calc(100% - 60px)
+@keyframes alternateAnimation
+    0%
+        left: 0
+    100%
+        left: calc(50% - 60px)
+@keyframes ball
+    0%
+        bottom: 100%
+        animation-timing-function: ease-in
+        // transform: rotate(180deg)
+    10%
+        bottom: 0
+        animation-timing-function: ease-out
+        animation-duration: 3s
+        transform: rotate(45deg)
+    20%
+        bottom: 50%
+        animation-timing-function: ease-in
+        animation-duration: 0.2s
+        // transform: rotate(180deg)
+        // transform: rotate(-180deg)
+    30%
+        bottom: 0
+        animation-timing-function: ease-out
+        transform: rotate(90deg)
+    40%
+        bottom: 25%
+        animation-timing-function: ease-in
+    50%
+        bottom: 0
+        animation-timing-function: ease-out
+        transform: rotate(180deg)
+        // transform: rotate(deg)
+    57%
+        bottom: 13%
+        animation-timing-function: ease-in
+    65%
+        bottom: 0
+        animation-timing-function: ease-out
+        transform: rotate(180deg)
+    70%
+        bottom: 6%
+        animation-timing-function: ease-in
+    75%
+        bottom: 0
+        animation-timing-function: ease-out
+        // transform: rotate(-360deg)
+    77%
+        bottom: 3%
+        animation-timing-function: ease-in
+    80%
+        bottom: 0
+        animation-timing-function: ease-out
+    82%
+        bottom: 1.5%px
+        animation-timing-function: ease-in
+    85%
+        bottom: 0
+        animation-timing-function: ease-out
+        
+    100%
+        bottom: 0
+        animation-timing-function: ease-out
+        left: calc( 100% - 60px )
+        transform: rotate(360deg)
+        
+
+
+
+             

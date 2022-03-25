@@ -58,3 +58,40 @@ $redBorder: 1px solid red
     height: 30px
     animation: increasePauseWidth 3s linear infinite alternate
     animation-play-state: paused
+.block7
+    @extend %square
+    animation: repeatThreeTimes 5s 3
+.block8
+    @extend %square
+    border: $redBorder
+    left: 0
+    top: 0
+    animation: squareMove 15s infinite, changeBackground 2s infinite
+.block9
+    @extend %square
+    animation: alternateAnimation 3s infinite alternate
+.block10
+    background-color: red
+    width: 0px
+    height: 100%
+    animation: increaseWidth 5s linear
+.hoverMe2
+    width: 10%
+    border: $redBorder
+    height: 30px
+    animation: increasePauseWidth 3s linear infinite alternate
+    animation-play-state: paused
+    &:hover
+        cursor: pointer
+        animation-play-state: running
+.block12
+    @extend %square
+    position: absolute
+    left: 0
+    bottom: calc(100% - 60px)
+    border-radius: 50%
+    background: linear-gradient(185deg, #0633ff, #d0f704)
+    transform: rotate(0)
+    animation: ball 5s infinite
+hr
+    border: 5px solid #333

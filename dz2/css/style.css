@@ -112,7 +112,229 @@
   }
 }
 
-.block1, .block2, .block3, .block4 {
+@-webkit-keyframes repeatThreeTimes {
+  from {
+    left: 0;
+  }
+  to {
+    left: calc(100% - 60px);
+  }
+}
+
+@keyframes repeatThreeTimes {
+  from {
+    left: 0;
+  }
+  to {
+    left: calc(100% - 60px);
+  }
+}
+
+@-webkit-keyframes alternateAnimation {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: calc(50% - 60px);
+  }
+}
+
+@keyframes alternateAnimation {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: calc(50% - 60px);
+  }
+}
+
+@-webkit-keyframes ball {
+  0% {
+    bottom: 100%;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  10% {
+    bottom: 0;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+    -webkit-animation-duration: 3s;
+            animation-duration: 3s;
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+  }
+  20% {
+    bottom: 50%;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+    -webkit-animation-duration: 0.2s;
+            animation-duration: 0.2s;
+  }
+  30% {
+    bottom: 0;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+  }
+  40% {
+    bottom: 25%;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  50% {
+    bottom: 0;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+  57% {
+    bottom: 13%;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  65% {
+    bottom: 0;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+  70% {
+    bottom: 6%;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  75% {
+    bottom: 0;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  77% {
+    bottom: 3%;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  80% {
+    bottom: 0;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  82% {
+    bottom: 1.5%px;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  85% {
+    bottom: 0;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  100% {
+    bottom: 0;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+    left: calc( 100% - 60px);
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes ball {
+  0% {
+    bottom: 100%;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  10% {
+    bottom: 0;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+    -webkit-animation-duration: 3s;
+            animation-duration: 3s;
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+  }
+  20% {
+    bottom: 50%;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+    -webkit-animation-duration: 0.2s;
+            animation-duration: 0.2s;
+  }
+  30% {
+    bottom: 0;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+  }
+  40% {
+    bottom: 25%;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  50% {
+    bottom: 0;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+  57% {
+    bottom: 13%;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  65% {
+    bottom: 0;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+  70% {
+    bottom: 6%;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  75% {
+    bottom: 0;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  77% {
+    bottom: 3%;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  80% {
+    bottom: 0;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  82% {
+    bottom: 1.5%px;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  85% {
+    bottom: 0;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  100% {
+    bottom: 0;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+    left: calc( 100% - 60px);
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+.block1, .block2, .block3, .block4, .block7, .block8, .block9, .block12 {
   width: 60px;
   height: 60px;
   background-color: red;
@@ -196,5 +418,63 @@
           animation: increasePauseWidth 3s linear infinite alternate;
   -webkit-animation-play-state: paused;
           animation-play-state: paused;
+}
+
+.block7 {
+  -webkit-animation: repeatThreeTimes 5s 3;
+          animation: repeatThreeTimes 5s 3;
+}
+
+.block8 {
+  border: 1px solid red;
+  left: 0;
+  top: 0;
+  -webkit-animation: squareMove 15s infinite, changeBackground 2s infinite;
+          animation: squareMove 15s infinite, changeBackground 2s infinite;
+}
+
+.block9 {
+  -webkit-animation: alternateAnimation 3s infinite alternate;
+          animation: alternateAnimation 3s infinite alternate;
+}
+
+.block10 {
+  background-color: red;
+  width: 0px;
+  height: 100%;
+  -webkit-animation: increaseWidth 5s linear;
+          animation: increaseWidth 5s linear;
+}
+
+.hoverMe2 {
+  width: 10%;
+  border: 1px solid red;
+  height: 30px;
+  -webkit-animation: increasePauseWidth 3s linear infinite alternate;
+          animation: increasePauseWidth 3s linear infinite alternate;
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+}
+
+.hoverMe2:hover {
+  cursor: pointer;
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
+}
+
+.block12 {
+  position: absolute;
+  left: 0;
+  bottom: calc(100% - 60px);
+  border-radius: 50%;
+  background: linear-gradient(185deg, #0633ff, #d0f704);
+  -webkit-transform: rotate(0);
+          transform: rotate(0);
+  -webkit-animation: ball 5s infinite;
+          animation: ball 5s infinite;
+}
+
+hr {
+  border: 5px solid #333;
 }
 /*# sourceMappingURL=style.css.map */
