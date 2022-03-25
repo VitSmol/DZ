@@ -1,0 +1,60 @@
+@import animations
+$redBorder: 1px solid red
+%square
+    width: 60px
+    height: 60px
+    background-color: red
+    position: relative
+
+.wrap
+    width: 80%
+    border: 1px dotted black
+    margin: 0 auto
+    padding: 10px
+    position: relative
+    margin-top: 10px
+.wrap3
+    height: 250px
+.wrapper
+    width: 80%
+    border: $redBorder
+    margin: 0 auto
+    height: 50px
+.block1
+    @extend %square
+    animation: moveRigth 3s infinite
+.block2
+    @extend %square
+    width: 150px
+    height: 150px
+    border: $redBorder
+    animation: changeBackground 5s infinite
+.block3
+    @extend %square
+    animation:  squareMove 5s infinite linear
+    left: 0
+    top: 0
+.block4
+    @extend %square
+    animation: hitherThither 5s infinite
+.block5
+    background-color: red
+    width: 0px
+    height: 100%
+    animation: increaseWidth 15s linear infinite
+
+.hoverMe
+    width: 20%
+    border: $redBorder
+    padding: 10px
+    &:hover
+        cursor: pointer
+        & ~ .block6
+            animation-play-state: running
+.block6
+    margin-top: 20px
+    width: 20%
+    border: 1px solid blue
+    height: 30px
+    animation: increasePauseWidth 3s linear infinite alternate
+    animation-play-state: paused
