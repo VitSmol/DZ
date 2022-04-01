@@ -1,0 +1,11 @@
+{
+  "name": "dz4",
+  "version": "1.0.0",
+  "description": "npm app",
+  "main": "src/js/index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "V.Smolitskiy",
+  "license": "ISC"
+}
