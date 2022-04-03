@@ -1,0 +1,200 @@
+@-webkit-keyframes moveRigth {
+  from {
+    left: 0;
+  }
+  to {
+    left: calc(100% - 60px);
+  }
+}
+
+@keyframes moveRigth {
+  from {
+    left: 0;
+  }
+  to {
+    left: calc(100% - 60px);
+  }
+}
+
+@-webkit-keyframes changeBackground {
+  0% {
+    background: white;
+  }
+  100% {
+    background: red;
+  }
+}
+
+@keyframes changeBackground {
+  0% {
+    background: white;
+  }
+  100% {
+    background: red;
+  }
+}
+
+@-webkit-keyframes squareMove {
+  25% {
+    top: 0;
+    left: calc( 50% - 30px);
+  }
+  50% {
+    left: calc( 50% - 30px);
+    top: calc( 50% - 30px);
+  }
+  75% {
+    left: 0;
+    top: calc( 50% - 30px);
+  }
+}
+
+@keyframes squareMove {
+  25% {
+    top: 0;
+    left: calc( 50% - 30px);
+  }
+  50% {
+    left: calc( 50% - 30px);
+    top: calc( 50% - 30px);
+  }
+  75% {
+    left: 0;
+    top: calc( 50% - 30px);
+  }
+}
+
+@-webkit-keyframes hitherThither {
+  0% {
+    left: 0;
+  }
+  50% {
+    left: 50%;
+  }
+  100% {
+    left: 0;
+  }
+}
+
+@keyframes hitherThither {
+  0% {
+    left: 0;
+  }
+  50% {
+    left: 50%;
+  }
+  100% {
+    left: 0;
+  }
+}
+
+@-webkit-keyframes increaseWidth {
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes increaseWidth {
+  100% {
+    width: 100%;
+  }
+}
+
+@-webkit-keyframes increasePauseWidth {
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes increasePauseWidth {
+  100% {
+    width: 100%;
+  }
+}
+
+.block1, .block2, .block3, .block4 {
+  width: 60px;
+  height: 60px;
+  background-color: red;
+  position: relative;
+}
+
+.wrap {
+  width: 80%;
+  border: 1px dotted black;
+  margin: 0 auto;
+  padding: 10px;
+  position: relative;
+  margin-top: 10px;
+}
+
+.wrap3 {
+  height: 250px;
+}
+
+.wrapper {
+  width: 80%;
+  border: 1px solid red;
+  margin: 0 auto;
+  height: 50px;
+}
+
+.block1 {
+  -webkit-animation: moveRigth 3s infinite;
+          animation: moveRigth 3s infinite;
+}
+
+.block2 {
+  width: 150px;
+  height: 150px;
+  border: 1px solid red;
+  -webkit-animation: changeBackground 5s infinite;
+          animation: changeBackground 5s infinite;
+}
+
+.block3 {
+  -webkit-animation: squareMove 5s infinite linear;
+          animation: squareMove 5s infinite linear;
+  left: 0;
+  top: 0;
+}
+
+.block4 {
+  -webkit-animation: hitherThither 5s infinite;
+          animation: hitherThither 5s infinite;
+}
+
+.block5 {
+  background-color: red;
+  width: 0px;
+  height: 100%;
+  -webkit-animation: increaseWidth 15s linear infinite;
+          animation: increaseWidth 15s linear infinite;
+}
+
+.hoverMe {
+  width: 20%;
+  border: 1px solid red;
+  padding: 10px;
+}
+
+.hoverMe:hover {
+  cursor: pointer;
+}
+
+.hoverMe:hover ~ .block6 {
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
+}
+
+.block6 {
+  margin-top: 20px;
+  width: 20%;
+  border: 1px solid blue;
+  height: 30px;
+  -webkit-animation: increasePauseWidth 3s linear infinite alternate;
+          animation: increasePauseWidth 3s linear infinite alternate;
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+}
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,185 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Open+Sans:wght@300&display=swap");
+body {
+  font-family: 'Merriweather', serif;
+  color: white;
+  text-shadow: 1px 1px 4px black;
+  background: linear-gradient(45deg, black, #00000091) no-repeat fixed center;
+  background-size: cover;
+  letter-spacing: 1px;
+  word-spacing: 3px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: 100vh;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-top: 45px;
+}
+
+.photo, .info {
+  padding: 0 20px;
+}
+
+.photo_section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+img {
+  width: 150px;
+  border-radius: 50%;
+}
+
+p {
+  font-style: italic;
+  font-weight: 300;
+}
+
+h1, h2 {
+  color: #f1d071;
+}
+
+h1 {
+  text-align: center;
+}
+
+hr {
+  border: 1px solid #f1d071;
+  -webkit-box-shadow: 1px 1px 1px #f1d071;
+          box-shadow: 1px 1px 1px #f1d071;
+  -webkit-box-shadow: 0px 0px 20px 3px #f1d071;
+          box-shadow: 0px 0px 20px 3px #f1d071;
+}
+
+.wrapper {
+  padding: 0 5vw;
+}
+
+.checkbox-container {
+  position: absolute;
+  left: calc(50% - 43px);
+  top: 10px;
+}
+
+.checkbox-container::before {
+  content: 'Flex model';
+  position: absolute;
+  left: -120px;
+  z-index: 200;
+  top: 5px;
+  color: #f1d071;
+}
+
+.checkbox-container::after {
+  content: 'Float model';
+  position: absolute;
+  right: -200px;
+  z-index: 200;
+  top: 5px;
+  color: #f1d071;
+}
+
+.checkbox {
+  visibility: hidden;
+}
+
+.checkbox-group {
+  position: absolute;
+  z-index: 50;
+  width: 86px;
+  height: 30px;
+  background-color: #333;
+  border-radius: 50px;
+}
+
+.checkbox-group::after {
+  position: absolute;
+  content: '';
+  top: 14px;
+  left: 14px;
+  height: 2px;
+  width: 58px;
+  background-color: #111;
+  border-radius: 50px;
+  -webkit-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 0.2);
+          box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 0.2);
+}
+
+.checkbox-label {
+  cursor: pointer;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  position: absolute;
+  display: block;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #fff;
+  top: 4px;
+  left: 4px;
+  z-index: 1;
+  -webkit-box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+          box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+  background: -webkit-gradient(linear, left top, left bottom, from(#fcfff4), color-stop(40%, #dfe5d7), to(#b3bead));
+  background: linear-gradient(to bottom, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+}
+
+.checkbox-label::after {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #333;
+  -webkit-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 0.2);
+          box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 0.2);
+}
+
+.checkbox:checked + .checkbox-label {
+  left: 54px;
+}
+
+.checkbox:checked + .checkbox-label:after {
+  background: #27ae60;
+}
+
+.checkbox:checked main {
+  color: black;
+}
+
+@media screen and (max-width: 650px) {
+  main {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .checkbox-container::before {
+    content: '';
+  }
+  .checkbox-container::after {
+    content: '';
+  }
+}
+/*# sourceMappingURL=mainstyle.css.map */
