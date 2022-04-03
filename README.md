@@ -10,9 +10,9 @@
 ---
 ## DZ4
 ### https://VitSmol.github.io/DZ/dz4/
-1. Clone repository
+1. Clone repository, and CD to DZ4
 2. Use npm install
-3. Run **node server.js** from **src/js**
+3. CD to **src/js** and run **node server.js**
 4. Run **index.html**
 The app read data from **data.json** and add these to table.
 Then you can add new user by using form.
