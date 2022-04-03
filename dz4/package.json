@@ -1,11 +1,18 @@
 {
   "name": "dz4",
   "version": "1.0.0",
-  "description": "npm app",
-  "main": "src/js/index.js",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "V.Smolitskiy",
-  "license": "ISC"
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "bootstrap": "^5.1.3",
+    "normalize.css": "^8.0.1"
+  }
 }
