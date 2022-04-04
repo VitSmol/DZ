@@ -1,7 +1,4 @@
-// const { setTimeout } = require("timers/promises");
-
 const requestURL = `http://localhost:8000/`;
-// const getBtn = document.querySelector(`#get`)
 const postBtn = document.querySelector(`#adduser`);
 const firstName = document.querySelector(`#name`);
 const lastName = document.querySelector(`#surname`);
@@ -55,12 +52,9 @@ postBtn.addEventListener(`click`, ()=> {
         lastName: lastName.value,
         age: age.value,
     }
-    // отправляем на сервер
+// отправляем на сервер
     sendRequest('POST', requestURL, obj)
     .then(data => {
-        // let p = document.createElement(`p`);
-        // p.innerHTML = JSON.stringify(obj)
-        // form.append(p)
             getRequest(`GET`, requestURL)
                 .then(data => {
                     createUserList(data)
@@ -69,12 +63,3 @@ postBtn.addEventListener(`click`, ()=> {
     })
     .catch(error => console.log(error))
 })
-
-
-
-// setInterval(() => {
-//     getRequest(`GET`, requestURL)
-//         .then(data => {
-//             createUserList(data)
-//         }).catch(error => console.log(error))
-// }, 5000)
