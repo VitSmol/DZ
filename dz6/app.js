@@ -1,7 +1,9 @@
 const a = {x: 1, z: 1}
 const b = {x: 2, y: 1}
-const c = {x: 2, y: 1, a: 2, z: 1}
-const d = {x: 2, y: 1, a: 4, b: 3 }
+
+const x = {x: 2, y:1, b: 8, c: 6}
+const y = {x: 2, a: 4, y: 1, b: 8}
+const z = {x: 2, y: 1, b: 4}
 
 //! Add objects function
 const add = (...arr) => {
@@ -24,4 +26,25 @@ const intersect = (a,b) => {
     }, {});
 }
 console.log(`Intersection function:`);
-console.log(intersect(c,d));
+console.log(intersect(x,y));
+
+
+function intersectKeys(...rest) {
+    let first = rest[0];
+    rest.sort((a,b) => Object.keys(b).length - Object.keys(a).length)
+    rest = rest.splice(1)
+    let result = {}
+    rest.forEach(el => {
+       for (let [key, val] of Object.entries(el)) {
+           if (key in first && first[key] == val) {
+               result[key] = first[key]
+           } else {
+               delete(result[key])
+           }
+       }
+    })
+    console.log(result);
+}
+
+console.log(`Intersection infinity function:`);
+intersectKeys(x,y,z)
