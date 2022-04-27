@@ -3,12 +3,18 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MainPageComponent } from './main-page/main-page.component';
+import { HeaderComponent } from './shared/header/header.component';
+import { AllNewsComponent } from './all-news/all-news.component';
+import { EditNewsComponent } from './edit-news/edit-news.component';
+import { NewComponent } from './new/new.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainPageComponent
+    HeaderComponent,
+    AllNewsComponent,
+    EditNewsComponent,
+    NewComponent
   ],
   imports: [
     BrowserModule,
