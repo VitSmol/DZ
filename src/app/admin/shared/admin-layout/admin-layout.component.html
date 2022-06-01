@@ -1,9 +1,11 @@
 <div class="menu">
   <div class="logo">
-    <h1>Главное управление по здравоохранению</h1>
+    <a routerLink="/">
+      <h1>Главное управление по здравоохранению</h1>
+    </a>
   </div>
   <nav class="menu__list">
-    <ul>
+    <ul *ngIf="auth.isAuth(); else login">
       <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
         <a routerLink="dashboard" >Главная</a>
       </li>
@@ -13,7 +15,15 @@
       <li>
         <a href="#" (click)="logout($event)">Выйти</a>
       </li>
+
     </ul>
+    <ng-template #login>
+      <ul>
+        <li>
+          <a routerLink="/">Назад</a>
+        </li>
+      </ul>
+    </ng-template>
   </nav>
 </div>
 
