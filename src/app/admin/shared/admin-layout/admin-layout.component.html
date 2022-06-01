@@ -11,7 +11,7 @@
         <a [routerLink]="['/admin', 'add']">Добавить</a>
       </li>
       <li>
-        <a [routerLink]='["/"]'>Выйти</a>
+        <a href="#" (click)="logout($event)">Выйти</a>
       </li>
     </ul>
   </nav>
