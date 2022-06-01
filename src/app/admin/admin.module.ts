@@ -1,9 +1,17 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
+import { FlexLayoutModule } from "@angular/flex-layout";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MatButtonModule } from "@angular/material/button";
+import { MatNativeDateModule } from "@angular/material/core";
+import { MatDatepickerModule } from "@angular/material/datepicker";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatInputModule } from "@angular/material/input";
+import { MatSelectModule } from "@angular/material/select";
 import { RouterModule } from "@angular/router";
 import { AuthGuard } from "../shared/auth.guard";
+import { MAT_DATE_LOCALE } from '@angular/material/core'
+import { MatIconModule } from "@angular/material/icon";
 
 import { AddPageComponent } from "./add-page/add-page.component";
 import { DashboardPageComponent } from "./dashboard-page/dashboard-page.component";
@@ -24,6 +32,13 @@ import { AdminLayoutComponent } from "./shared/admin-layout/admin-layout.compone
     FormsModule,
     ReactiveFormsModule,
     MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    FlexLayoutModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
+    MatIconModule,
     RouterModule.forChild([
       {path: '', component: AdminLayoutComponent, children: [
         {path: '', redirectTo: '/admin/login', pathMatch: 'full'},
@@ -34,7 +49,10 @@ import { AdminLayoutComponent } from "./shared/admin-layout/admin-layout.compone
       ]}
     ])
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [
+    {provide: MAT_DATE_LOCALE, useValue: 'ru-RU'}
+  ]
 })
 
 export class AdminModule {}

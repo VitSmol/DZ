@@ -13,6 +13,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MainLayoutComponent } from './shared/main-layout/main-layout.component';
 import { DoctorComponent } from './doctor/doctor.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { HttpClientModule } from '@angular/common/http';
     FlexLayoutModule,
     MatFormFieldModule,
     MatInputModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
     HttpClientModule
   ],
   providers: [],
