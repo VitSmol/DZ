@@ -12,9 +12,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MainLayoutComponent } from './shared/main-layout/main-layout.component';
 import { DoctorComponent } from './doctor/doctor.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import { AuthInterceptor } from './shared/auth.interseptor';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,13 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     MatDatepickerModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      multi: true,
+      useClass: AuthInterceptor
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

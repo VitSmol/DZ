@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { DoctorService } from 'src/app/shared/doctor.service';
 
 @Component({
   selector: 'app-add-page',
@@ -8,8 +10,12 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class AddPageComponent implements OnInit {
   form!: FormGroup
+  submitted = false
 
-  constructor() { }
+  constructor(
+    private docService: DoctorService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -28,6 +34,7 @@ export class AddPageComponent implements OnInit {
    if (this.form.invalid) {
     return
    }
+   this.submitted = true
    const doctor = {
      uz: this.form.value.uz,
      lastname: this.form.value.lastname,
@@ -39,6 +46,11 @@ export class AddPageComponent implements OnInit {
      conclusionContractDate: new Date(this.form.value.conclusionContractDate),
      expirationContractDate: new Date(this.form.value.expirationContractDate),
    }
+   this.docService.create(doctor).subscribe(res => {
+     this.form.reset()
+     this.submitted = false;
+     this.router.navigate(['/'])
+   });
 
    console.log(doctor);
 

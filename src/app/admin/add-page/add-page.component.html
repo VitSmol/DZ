@@ -50,6 +50,6 @@
       <mat-date-range-picker  startView="multi-year" #rangepicker ></mat-date-range-picker>
     </mat-form-field>
 
-    <button mat-raised-button type="submit" [disabled]="form.invalid">Доавить данные</button>
+    <button mat-raised-button type="submit" [disabled]="form.invalid || submitted">Доавить данные</button>
   </form>
 

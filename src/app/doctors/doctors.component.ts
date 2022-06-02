@@ -2,6 +2,8 @@ import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { mergeMap, Observable } from 'rxjs';
+import { DoctorService } from '../shared/doctor.service';
 
 export interface doctorsElement {
   surname: string;
@@ -25,8 +27,22 @@ const doctors: doctorsElement[] = [
 export class DoctorsComponent implements AfterViewInit, OnInit{
   displayedColumns: string[] = ['position', 'surname', 'name', 'fathername'];
   dataSource = new MatTableDataSource(doctors)
+  doctorsArray: any[] = [];
+  constructor(
+    private _liveAnnouncer: LiveAnnouncer,
+    private doctorServ: DoctorService
+    ) {}
 
-  constructor(private _liveAnnouncer: LiveAnnouncer) {}
+    ngOnInit(): void { //! ЕБАТЬ КАКОЕ СЛОЖНОЕ МЕСТО! НУЖНО ИЗ ОТВЕТА (OBSERVABLE СДЕЛАТЬ ОБЫЧНЫЙ МАССИВ)
+      this.getDoctors()
+    }
+
+    getDoctors() {
+      this.doctorServ.getAll().subscribe(doctors => {
+        this.doctorsArray = doctors
+        console.log(this.doctorsArray);
+      })
+    }
 
   @ViewChild(MatSort) sort!: MatSort;
 
@@ -48,10 +64,6 @@ export class DoctorsComponent implements AfterViewInit, OnInit{
   }
 
 
-  ngOnInit(): void {
-    // this.dataSource.filterPredicate = function (record,filter) {
-    //   console.log(record.name);
-    //   return false
-   }
+
   }
 
