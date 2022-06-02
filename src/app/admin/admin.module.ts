@@ -18,6 +18,7 @@ import { DashboardPageComponent } from "./dashboard-page/dashboard-page.componen
 import { EditPageComponent } from "./edit-page/edit-page.component";
 import { LoginPageComponent } from "./login-page/login-page.component";
 import { AdminLayoutComponent } from "./shared/admin-layout/admin-layout.component";
+import { MatPaginatorModule } from "@angular/material/paginator";
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { AdminLayoutComponent } from "./shared/admin-layout/admin-layout.compone
     MatNativeDateModule,
     MatDatepickerModule,
     MatIconModule,
+    MatPaginatorModule,
     RouterModule.forChild([
       {path: '', component: AdminLayoutComponent, children: [
         {path: '', redirectTo: '/admin/login', pathMatch: 'full'},

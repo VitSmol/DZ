@@ -7,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private doctorServ: DoctorService
+  ) { }
 
   ngOnInit(): void {
   }

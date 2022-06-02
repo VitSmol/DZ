@@ -4,18 +4,7 @@ import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { mergeMap, Observable } from 'rxjs';
 import { DoctorService } from '../shared/doctor.service';
-
-export interface doctorsElement {
-  surname: string;
-  name: string;
-  fathername: string;
-}
-
-const doctors: doctorsElement[] = [
-  {surname: 'Бугаков', name: 'Владимир',fathername: 'Алексеевич'},
-  {surname: 'Приступин', name: 'Михаил',fathername: 'Борисович'},
-  {surname: 'Ижаковский', name: 'Вячеслав',fathername: 'Станиславович'},
-]
+import {MatPaginator} from '@angular/material/paginator';
 
 @Component({
   selector: 'app-doctors',
@@ -25,9 +14,20 @@ const doctors: doctorsElement[] = [
 
 
 export class DoctorsComponent implements AfterViewInit, OnInit{
-  displayedColumns: string[] = ['position', 'lastname', 'firstname', 'fathername'];
+  currentDate = new Date()
+  displayedColumns: string[] = [
+    'index',
+    'lastname',
+    'firstname',
+    'fathername',
+    'position',
+    'mobile',
+    'birthDate',
+    'age',
+    'conclusionContractDate',
+    'expirationContractDate',
+  ];
   dataSource: any
-  //  = new MatTableDataSource(doctors)
   doctorsArray: any[] = [];
   constructor(
     private _liveAnnouncer: LiveAnnouncer,
@@ -38,19 +38,20 @@ export class DoctorsComponent implements AfterViewInit, OnInit{
       this.getDoctors()
     }
     @ViewChild(MatSort) sort!: MatSort;
+    @ViewChild(MatPaginator) paginator!: MatPaginator;
 
     getDoctors() {
       this.doctorServ.getAll().subscribe(doctors => {
-        this.doctorsArray = doctors
+        this.doctorsArray = doctors.sort((a,b) => a.expirationContractDate - b.expirationContractDate)
         console.log(this.doctorsArray);
         this.dataSource = new MatTableDataSource(this.doctorsArray)
         this.dataSource.sort = this.sort
+        this.dataSource.paginator = this.paginator
       })
     }
 
     ngAfterViewInit(): void {
   }
-
 
   announceSortChange(sortState: Sort) {
     if (sortState.direction) {
@@ -61,7 +62,6 @@ export class DoctorsComponent implements AfterViewInit, OnInit{
   }
 
   public doFilter = (input: any) => {
-    // console.log(this.dataSource.filterPredicate(input, 'name'));
     this.dataSource.filter = input.value.trim().toLowerCase();
   }
 
