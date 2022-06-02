@@ -25,30 +25,32 @@ const doctors: doctorsElement[] = [
 
 
 export class DoctorsComponent implements AfterViewInit, OnInit{
-  displayedColumns: string[] = ['position', 'surname', 'name', 'fathername'];
-  dataSource = new MatTableDataSource(doctors)
+  displayedColumns: string[] = ['position', 'lastname', 'firstname', 'fathername'];
+  dataSource: any
+  //  = new MatTableDataSource(doctors)
   doctorsArray: any[] = [];
   constructor(
     private _liveAnnouncer: LiveAnnouncer,
     private doctorServ: DoctorService
     ) {}
 
-    ngOnInit(): void { //! ЕБАТЬ КАКОЕ СЛОЖНОЕ МЕСТО! НУЖНО ИЗ ОТВЕТА (OBSERVABLE СДЕЛАТЬ ОБЫЧНЫЙ МАССИВ)
+    ngOnInit(): void {
       this.getDoctors()
     }
+    @ViewChild(MatSort) sort!: MatSort;
 
     getDoctors() {
       this.doctorServ.getAll().subscribe(doctors => {
         this.doctorsArray = doctors
         console.log(this.doctorsArray);
+        this.dataSource = new MatTableDataSource(this.doctorsArray)
+        this.dataSource.sort = this.sort
       })
     }
 
-  @ViewChild(MatSort) sort!: MatSort;
-
-  ngAfterViewInit(): void {
-    this.dataSource.sort = this.sort
+    ngAfterViewInit(): void {
   }
+
 
   announceSortChange(sortState: Sort) {
     if (sortState.direction) {
