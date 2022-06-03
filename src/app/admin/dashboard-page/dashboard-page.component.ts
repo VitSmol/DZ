@@ -8,6 +8,7 @@ import {MatDialog} from '@angular/material/dialog';
 
 import { DoctorService } from 'src/app/shared/doctor.service';
 import { AddPageComponent } from '../add-page/add-page.component';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard-page',
@@ -27,9 +28,12 @@ export class DashboardPageComponent implements OnInit {
     'age',
     'conclusionContractDate',
     'expirationContractDate',
+    'edit',
+    'delete',
   ];
   dataSource: any
   doctorsArray: any[] = [];
+  removeSub!: Subscription
 
   constructor(
     private doctorServ: DoctorService,
@@ -37,7 +41,7 @@ export class DashboardPageComponent implements OnInit {
     private _liveAnnouncer: LiveAnnouncer,
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit(): any {
     this.getDoctors()
   }
 
@@ -47,7 +51,6 @@ export class DashboardPageComponent implements OnInit {
   getDoctors() {
     this.doctorServ.getAll().subscribe(doctors => {
       this.doctorsArray = doctors.sort((a,b) => a.expirationContractDate - b.expirationContractDate)
-      console.log(this.doctorsArray);
       this.dataSource = new MatTableDataSource(this.doctorsArray)
       this.dataSource.sort = this.sort
       this.dataSource.paginator = this.paginator
@@ -55,6 +58,12 @@ export class DashboardPageComponent implements OnInit {
   }
 
   ngAfterViewInit(): void {
+}
+
+ngOnDestroy() {
+  if (this.removeSub) {
+    this.removeSub.unsubscribe()
+  }
 }
 
 announceSortChange(sortState: Sort) {
@@ -69,9 +78,20 @@ public doFilter = (input: any) => {
   this.dataSource.filter = input.value.trim().toLowerCase();
 }
   openDialog(){
-    this.dialog.open(AddPageComponent, {
+    let dialogRef = this.dialog.open(AddPageComponent, {
       width: `600px`,
-    }
-      )
+    })
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.getDoctors()
+      }
+    })
   }
+
+remove(id: any) {
+  this.removeSub = this.doctorServ.remove(id).subscribe(() => {
+    this.dataSource = new MatTableDataSource(this.doctorsArray.filter((doctor: any) => doctor.id != id))
+  })
+  this.getDoctors()
+}
 }
