@@ -20,6 +20,8 @@ import { LoginPageComponent } from "./login-page/login-page.component";
 import { AdminLayoutComponent } from "./shared/admin-layout/admin-layout.component";
 import { MatPaginatorModule } from "@angular/material/paginator";
 import {MatDialogModule} from '@angular/material/dialog';
+import { MatSortModule } from "@angular/material/sort";
+import { MatTableModule } from "@angular/material/table";
 
 @NgModule({
   declarations: [
@@ -44,6 +46,9 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatIconModule,
     MatPaginatorModule,
     MatDialogModule,
+    MatTableModule,
+    MatSortModule,
+    FlexLayoutModule,
     RouterModule.forChild([
       {path: '', component: AdminLayoutComponent, children: [
         {path: '', redirectTo: '/admin/login', pathMatch: 'full'},

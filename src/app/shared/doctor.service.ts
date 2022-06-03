@@ -37,7 +37,20 @@ export class DoctorService {
 
     }) )
   }
-
+  getById(id:any){
+    const currentDate = new Date().getTime()
+    return this.http.get(`${environment.dbUrl}/doctors/${id}.json`)
+    .pipe(map((res:any) => {
+      return {
+        ...res,
+        id,
+        birthDate: new Date(res.birthDate),
+        age: Math.ceil((currentDate - new Date(res.birthDate).getTime()) / (1000 * 3600 * 24 * 365)),
+        conclusionContractDate: new Date(res.conclusionContractDate),
+        expirationContractDate: new Date(res.expirationContractDate),
+      }
+    } ))
+  }
   remove(id:any) {
     return this.http.delete(`${environment.dbUrl}/doctors/${id}.json`)
   }
