@@ -54,6 +54,8 @@ export class DashboardPageComponent implements OnInit {
       this.dataSource = new MatTableDataSource(this.doctorsArray)
       this.dataSource.sort = this.sort
       this.dataSource.paginator = this.paginator
+      console.log(`fetch is done`);
+
     })
   }
 
@@ -83,7 +85,12 @@ public doFilter = (input: any) => {
     })
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.getDoctors()
+        console.log(result);
+        // let This = this
+        setTimeout(() => {
+          this.getDoctors()
+        }, 1500)
+        // this.getDoctors()
       }
     })
   }
