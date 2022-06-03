@@ -49,7 +49,7 @@ export class AddPageComponent implements OnInit {
    this.docService.create(doctor).subscribe(res => {
      this.form.reset()
      this.submitted = false;
-     this.router.navigate(['/'])
+     this.router.navigate(['admin', 'dashboard'])
    });
 
    console.log(doctor);

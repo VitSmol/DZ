@@ -1,5 +1,4 @@
 <div class="table__container">
-
   <div fxLayout fxLayoutAlign="center center">
     <mat-form-field fxFlex="40%">
       <input matInput type="text" (keyup)="doFilter($event.target)" placeholder="Поиск">
@@ -81,8 +80,10 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
-    <mat-paginator showFirstLastButtons  [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="2" aria-label="Select page of users">
-
+    <mat-paginator
+    showFirstLastButtons
+    [pageSizeOptions]="[20, 25, 50, 100]"
+    [pageSize]="20" aria-label="Select page of users">
     </mat-paginator>
   </div>
 </div>

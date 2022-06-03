@@ -19,6 +19,7 @@ import { EditPageComponent } from "./edit-page/edit-page.component";
 import { LoginPageComponent } from "./login-page/login-page.component";
 import { AdminLayoutComponent } from "./shared/admin-layout/admin-layout.component";
 import { MatPaginatorModule } from "@angular/material/paginator";
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { MatPaginatorModule } from "@angular/material/paginator";
     EditPageComponent,
     AddPageComponent
   ],
+  entryComponents: [AddPageComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -41,6 +43,7 @@ import { MatPaginatorModule } from "@angular/material/paginator";
     MatDatepickerModule,
     MatIconModule,
     MatPaginatorModule,
+    MatDialogModule,
     RouterModule.forChild([
       {path: '', component: AdminLayoutComponent, children: [
         {path: '', redirectTo: '/admin/login', pathMatch: 'full'},

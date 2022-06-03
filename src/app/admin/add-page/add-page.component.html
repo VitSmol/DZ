@@ -2,6 +2,7 @@
     Добавление данных главного врача
   </h2>
 
+<!-- <mat-dialog-content class="mat-typography"> -->
   <form [formGroup]="form" (ngSubmit)="submit()" class="add__form">
     <mat-form-field >
       <mat-label>Организация здравоохранения</mat-label>
@@ -50,6 +51,10 @@
       <mat-date-range-picker  startView="multi-year" #rangepicker ></mat-date-range-picker>
     </mat-form-field>
 
-    <button mat-raised-button type="submit" [disabled]="form.invalid || submitted">Доавить данные</button>
+    <mat-dialog-actions align="center">
+      <button mat-raised-button mat-dialog-close type="submit" [disabled]="form.invalid || submitted">Добавить данные</button>
+      <button id="close_btn" mat-raised-button color="Warn" mat-dialog-close>Закрыть</button>
+    </mat-dialog-actions>
   </form>
+<!-- </mat-dialog-content> -->
 
