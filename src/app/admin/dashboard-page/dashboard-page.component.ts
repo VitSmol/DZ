@@ -9,6 +9,7 @@ import {MatDialog} from '@angular/material/dialog';
 import { DoctorService } from 'src/app/shared/doctor.service';
 import { AddPageComponent } from '../add-page/add-page.component';
 import { Subscription } from 'rxjs';
+import { EditPageComponent } from '../edit-page/edit-page.component';
 
 @Component({
   selector: 'app-dashboard-page',
@@ -22,6 +23,7 @@ export class DashboardPageComponent implements OnInit {
     'lastname',
     'firstname',
     'fathername',
+    'uz',
     'position',
     'mobile',
     'birthDate',
@@ -54,7 +56,6 @@ export class DashboardPageComponent implements OnInit {
       this.dataSource = new MatTableDataSource(this.doctorsArray)
       this.dataSource.sort = this.sort
       this.dataSource.paginator = this.paginator
-      console.log(`fetch is done`);
 
     })
   }
@@ -85,12 +86,9 @@ public doFilter = (input: any) => {
     })
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        console.log(result);
-        // let This = this
         setTimeout(() => {
           this.getDoctors()
         }, 1500)
-        // this.getDoctors()
       }
     })
   }
@@ -100,5 +98,17 @@ remove(id: any) {
     this.dataSource = new MatTableDataSource(this.doctorsArray.filter((doctor: any) => doctor.id != id))
   })
   this.getDoctors()
+}
+openEdit() {
+  let dialogRef = this.dialog.open(EditPageComponent, {
+    width: `600px`,
+  })
+  dialogRef.afterClosed().subscribe(result => {
+    if (result) {
+      setTimeout(() => {
+        this.getDoctors()
+      }, 1500)
+    }
+  })
 }
 }

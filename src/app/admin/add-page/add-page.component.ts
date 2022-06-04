@@ -12,6 +12,7 @@ export class AddPageComponent implements OnInit {
   form!: FormGroup
   submitted = false
 
+
   constructor(
     private docService: DoctorService,
     private router: Router
@@ -23,7 +24,7 @@ export class AddPageComponent implements OnInit {
       lastname: new FormControl(null, Validators.required),
       firstname: new FormControl(null, Validators.required),
       fathername: new FormControl(null, Validators.required),
-      position: new FormControl(null, Validators.required),
+      position: new FormControl('Главный врач', Validators.required),
       mobile: new FormControl(null, Validators.required),
       birthDate: new FormControl(null, Validators.required),
       conclusionContractDate: new FormControl(null, Validators.required),

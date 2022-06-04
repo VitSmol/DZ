@@ -20,6 +20,7 @@ export class DoctorsComponent implements AfterViewInit, OnInit{
     'lastname',
     'firstname',
     'fathername',
+    'uz',
     'position',
     'mobile',
     'birthDate',

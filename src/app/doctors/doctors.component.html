@@ -34,6 +34,12 @@
       > Отчество </th>
       <td mat-cell *matCellDef="let element"> {{element.fathername}} </td>
     </ng-container>
+    <ng-container matColumnDef="uz">
+      <th mat-header-cell *matHeaderCellDef
+      mat-sort-header sortActionDescription="Sort by fathername"
+      > Учреждение </th>
+      <td mat-cell *matCellDef="let element"> {{element.uz}} </td>
+    </ng-container>
 
     <ng-container matColumnDef="position">
       <th mat-header-cell *matHeaderCellDef

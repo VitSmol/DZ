@@ -31,7 +31,7 @@ import { MatTableModule } from "@angular/material/table";
     EditPageComponent,
     AddPageComponent
   ],
-  entryComponents: [AddPageComponent],
+  entryComponents: [AddPageComponent, EditPageComponent ],
   imports: [
     CommonModule,
     FormsModule,
