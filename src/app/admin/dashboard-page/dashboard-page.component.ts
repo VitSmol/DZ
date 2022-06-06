@@ -116,4 +116,10 @@ openEdit() {
     }
   })
 }
+delete(event: any) {
+  console.log(event);
+  const removableDoctor = this.doctorsArray[event.previousIndex]
+  this.remove(removableDoctor.id)
+  // console.log(removableDoctor.id);
+}
 }
