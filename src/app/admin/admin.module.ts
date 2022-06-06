@@ -22,6 +22,8 @@ import { MatPaginatorModule } from "@angular/material/paginator";
 import {MatDialogModule} from '@angular/material/dialog';
 import { MatSortModule } from "@angular/material/sort";
 import { MatTableModule } from "@angular/material/table";
+import { ScrollingModule } from "@angular/cdk/scrolling";
+import { DragDropModule } from "@angular/cdk/drag-drop";
 
 @NgModule({
   declarations: [
@@ -49,6 +51,9 @@ import { MatTableModule } from "@angular/material/table";
     MatTableModule,
     MatSortModule,
     FlexLayoutModule,
+    ScrollingModule,
+    MatIconModule,
+    DragDropModule,
     RouterModule.forChild([
       {path: '', component: AdminLayoutComponent, children: [
         {path: '', redirectTo: '/admin/login', pathMatch: 'full'},

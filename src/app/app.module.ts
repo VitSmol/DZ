@@ -18,6 +18,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { AuthInterceptor } from './shared/auth.interseptor';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
+import { ScrollingModule } from '@angular/cdk/scrolling';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     HttpClientModule,
     MatPaginatorModule,
     MatDialogModule,
+    ScrollingModule,
+    MatIconModule,
   ],
   providers: [
     {

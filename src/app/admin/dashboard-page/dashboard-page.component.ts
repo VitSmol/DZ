@@ -10,6 +10,7 @@ import { DoctorService } from 'src/app/shared/doctor.service';
 import { AddPageComponent } from '../add-page/add-page.component';
 import { Subscription } from 'rxjs';
 import { EditPageComponent } from '../edit-page/edit-page.component';
+import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-dashboard-page',
@@ -52,10 +53,14 @@ export class DashboardPageComponent implements OnInit {
 
   getDoctors() {
     this.doctorServ.getAll().subscribe(doctors => {
-      this.doctorsArray = doctors.sort((a,b) => a.expirationContractDate - b.expirationContractDate)
-      this.dataSource = new MatTableDataSource(this.doctorsArray)
-      this.dataSource.sort = this.sort
-      this.dataSource.paginator = this.paginator
+      if (!doctors) {
+        return
+      } else {
+        this.doctorsArray = doctors.sort((a,b) => a.expirationContractDate - b.expirationContractDate)
+        this.dataSource = new MatTableDataSource(this.doctorsArray)
+        this.dataSource.sort = this.sort
+        this.dataSource.paginator = this.paginator
+      }
 
     })
   }

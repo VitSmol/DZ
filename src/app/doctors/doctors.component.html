@@ -4,7 +4,7 @@
       <input matInput type="text" (keyup)="doFilter($event.target)" placeholder="Поиск">
     </mat-form-field>
   </div>
-<div class="mat-elevation-z8">
+  <cdk-virtual-scroll-viewport itemSize="20" class="mat-elevation-z8 viewport">
   <table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)" class="mat-elevation-z8">
 
     <ng-container matColumnDef="index">
@@ -86,10 +86,12 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
-    <mat-paginator
-    showFirstLastButtons
-    [pageSizeOptions]="[20, 25, 50, 100]"
-    [pageSize]="20" aria-label="Select page of users">
-    </mat-paginator>
-  </div>
+  <mat-paginator
+  class="paggination"
+  showFirstLastButtons
+  [pageSizeOptions]="[20, 25, 50, 100]"
+  [pageSize]="20" aria-label="Select page of users">
+</mat-paginator>
+</cdk-virtual-scroll-viewport>
 </div>
+

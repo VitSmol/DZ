@@ -1,5 +1,5 @@
 import { LiveAnnouncer } from '@angular/cdk/a11y';
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { mergeMap, Observable } from 'rxjs';
@@ -43,11 +43,16 @@ export class DoctorsComponent implements AfterViewInit, OnInit{
 
     getDoctors() {
       this.doctorServ.getAll().subscribe(doctors => {
-        this.doctorsArray = doctors.sort((a,b) => a.expirationContractDate - b.expirationContractDate)
-        console.log(this.doctorsArray);
-        this.dataSource = new MatTableDataSource(this.doctorsArray)
-        this.dataSource.sort = this.sort
-        this.dataSource.paginator = this.paginator
+        if (!doctors) {
+          return
+        } else {
+          this.doctorsArray = doctors.sort((a,b) => a.expirationContractDate - b.expirationContractDate)
+          console.log(this.doctorsArray);
+          this.dataSource = new MatTableDataSource(this.doctorsArray)
+          this.dataSource.sort = this.sort
+          this.dataSource.paginator = this.paginator
+        }
+
       })
     }
 
