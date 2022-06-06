@@ -26,7 +26,6 @@ export class DoctorService {
     const currentDate = new Date().getTime()
     return this.http.get(`${environment.dbUrl}/test_doctors.json`)
     .pipe( map((res:any) => {
-      console.log(res);
       if (!res) {
         return
       }  else {

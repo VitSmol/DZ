@@ -11,6 +11,8 @@ import { AuthService } from 'src/app/shared/auth.service';
 export class LoginPageComponent implements OnInit {
   form!: FormGroup
   submitted = false
+  isAut = true
+
   constructor(
     public auth: AuthService,
     private router: Router
@@ -18,8 +20,8 @@ export class LoginPageComponent implements OnInit {
 
   ngOnInit(): void {
       this.form = new FormGroup({
-      email: new FormControl(null, [Validators.required, Validators.email]),
-      password: new FormControl(null, [Validators.required, Validators.minLength(6)]),
+      email: new FormControl('ok@gomeluzo.by', [Validators.required, Validators.email]),
+      password: new FormControl('ok310522', [Validators.required, Validators.minLength(6)]),
     })
   }
   submit() {
@@ -33,8 +35,6 @@ export class LoginPageComponent implements OnInit {
       returnSecureToken: true
     }
     this.auth.login(user).subscribe(res => {
-      console.log(res);
-
       this.form.reset
       this.router.navigate(['/admin', 'dashboard'])
       this.submitted = false
