@@ -63,4 +63,10 @@ export class DoctorService {
   update(doctor:any) {
     return this.http.patch(`${environment.dbUrl}/test_doctors/${doctor.id}.json`, doctor)
   }
+  getContractNotification() {
+    return this.http.get(`${environment.dbUrl}/test_doctors.json`)
+    .pipe( map ((res:any) => {
+      // console.log(res);
+    }))
+  }
 }

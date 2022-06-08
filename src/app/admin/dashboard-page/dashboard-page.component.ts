@@ -46,6 +46,7 @@ export class DashboardPageComponent implements OnInit {
 
   ngOnInit(): any {
     this.getDoctors()
+    this.getNotification()
   }
 
   @ViewChild(MatSort) sort!: MatSort;
@@ -61,7 +62,6 @@ export class DashboardPageComponent implements OnInit {
         this.dataSource.sort = this.sort
         this.dataSource.paginator = this.paginator
       }
-
     })
   }
 
@@ -122,4 +122,9 @@ delete(event: any) {
   this.remove(removableDoctor.id)
   // console.log(removableDoctor.id);
 }
+getNotification() {
+  const notificationArray = this.doctorServ.getContractNotification()
+  console.log(notificationArray);
+}
+
 }
