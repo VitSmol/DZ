@@ -6,8 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asia chronicle</title>
+    <style>
+        .dark-theme {
+            background-color: rgb(65, 65, 80);
+            color: beige;
+        }
+        .dark-theme a {
+            color: aliceblue;
+        }
+    </style>
 </head>
-
 <body>
     <label for="category">Category:
         <select name="select" id="category">
@@ -17,8 +25,11 @@
         <select name="select" id="title">
         </select>
     </label>
-
+    <span id="module"></span>
     <script src="script.js"></script>
+    <script type="module">
+        import {setModule} from './module.js';
+        setModule();
+    </script>
 </body>
-
 </html>
