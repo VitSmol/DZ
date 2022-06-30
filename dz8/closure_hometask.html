@@ -64,32 +64,32 @@
   ];
   render(data);
 
-  function delayLiveSearch() {
+  function delayLiveSearch(fn, delay) {
     //your closure code here
-    let isTimeout = false;
-    let timer;
-    return function (e) {
-      if (!isTimeout) {
-        timer = setTimeout(handleLiveSearch.bind(null, e), 500);
-      };
-      setTimeout((function() {
-        isTimeout = !isTimeout;
-        setTimeout(() => clearTimeout(timer), 500);
-      })(), 500);
-    }
+    // let isTimeout = false;
+    // let timer;
+    // return function (e) {
+    //   if (!isTimeout) {
+    //     timer = setTimeout(handleLiveSearch.bind(null, e), 500);
+    //   };
+    //   setTimeout((function() {
+    //     isTimeout = !isTimeout;
+    //     setTimeout(() => clearTimeout(timer), 500);
+    //   })(), 500);
+    // }
+      let timer;
+      return function() {
+        const callFunc = () => { fn.apply(this, arguments)}
+        clearTimeout(timer);
+        timer = setTimeout(callFunc, delay)
+      }
   }
-  let delay = delayLiveSearch();
+  let delay = delayLiveSearch(handleLiveSearch, 500);
   /********** Live Search *********/
 
-  document.getElementById("liveSearchName").addEventListener('input', function (e) {
-    //TODO: use delayLiveSearch to delay backend call
-    delay(e);
-  });
+  document.getElementById("liveSearchName").addEventListener('input', delay);
 
-  document.getElementById("liveSearchSurname").addEventListener('input', function (e) {
-    //TODO: use delayLiveSearch to delay backend call
-    delay(e);
-  });
+  document.getElementById("liveSearchSurname").addEventListener('input', delay);
 
   /********** Live Search *********/
 
